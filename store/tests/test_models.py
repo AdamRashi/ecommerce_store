@@ -6,7 +6,8 @@ from store.models import Category, Product, User
 class TestCategoriesModel(TestCase):
 
     def setUp(self):
-        self.data1 = Category.objects.create(name="test category", slug='test-cat')
+        self.data1 = Category.objects.create(name="test category",
+                                             slug='test-cat')
 
     def test_category_model_entry(self):
         """
