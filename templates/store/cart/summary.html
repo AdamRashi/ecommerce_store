@@ -1,0 +1,69 @@
+{% extends '../base.html' %}
+{% load static %}
+
+{% block title %}
+Shopping Cart
+{% endblock %}
+
+
+{% block content %}
+<div class="product-details m-5 mr-2">
+    <h2 class="mb-0">Shopping cart</h2>
+                    <div class="d-flex justify-content-between"><span>You have {{ cart|length }} items in your cart</span>
+                        <div class="d-flex flex-row align-items-center"><span class="text-black-50">Sort by:</span>
+                            <div class="price ml-2"><span class="mr-1">price</span><i class="fa fa-angle-down"></i></div>
+                        </div>
+                    </div>
+
+            {% for item in cart %}
+            {% with product=item.product %}
+                    <div class="d-flex justify-content-between align-items-center mt-3 p-2 items rounded">
+                        <div class="d-flex flex-row"><img class="rounded mx-auto" src="{{ product.image.url }}" width="80">
+                            <div class="ml-2 p-4"><span class="font-weight-bold d-block">{{ product.title }}</span><span class="spec">{{ product.description }}</span></div>
+                        </div>
+
+                    <div class="col">
+                        <div class="row p-3">
+                          <div class="col-12">
+                            <label for="select"> </label>
+                            <select id="select{{product.id}}">
+                              <option selected>
+                                {{item.qty}}
+                              </option>
+                              <option value="1">1</option>
+                              <option value="2">2</option>
+                              <option value="3">3</option>
+                              <option value="4">4</option>
+                            </select>
+                            <button type="button" id="update-button" data-index="{{product.id}}"
+                              class="btn btn-outline-secondary btn-sm update-button">
+                              Update
+                            </button>
+                            <button type="button" id="delete-button" data-index="{{product.id}}"
+                              class="btn btn-outline-secondary btn-sm delete-button">
+                              Delete
+                            </button>
+                          </div>
+                        </div>
+                    </div>
+
+                        <div class="d-flex flex-row align-items-center">
+                            <span class="d-block"> {{ item.qty }} </span>
+                            <span class="d-block ml-5"> × </span>
+                            <span class="d-block ml-5 font-weight-bold">{{ item.price }}</span>
+                            <span class="d-block ml-5"> = </span>
+                            <span class="d-block ml-5 font-weight-bold text-right">{{ item.total_price }}</span>
+                            <i class="fa fa-trash-o ml-3 text-black-50"></i>
+                        </div>
+
+                    </div>
+            {% endwith %}
+            {% endfor %}
+
+            <div class="col-12 text-right">
+                <div class="h6 fw-bold ">
+                    Total: <span class="ml-5" id="total">  {{cart.get_total_price}}</span>
+                </div>
+            </div>
+</div>
+{% endblock %}

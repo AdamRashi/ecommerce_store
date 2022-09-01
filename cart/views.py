@@ -6,7 +6,8 @@ from .shopping_cart import ShoppingCart
 
 
 def cart_summary(request):
-    return render(request, 'store/cart/cart_summary.html')
+    cart = ShoppingCart(request)
+    return render(request, 'store/cart/summary.html', {'cart': cart})
 
 
 def cart_add(request):
