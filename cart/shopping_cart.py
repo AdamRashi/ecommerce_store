@@ -26,7 +26,28 @@ class ShoppingCart:
         else:
             self.cart[product_id] = {'price': str(product.price), 'qty': int(qty)}
 
-        self.session.modified = True
+        self.save()
+
+    def remove(self, product_id):
+        """
+        Remove all instances of the product from the session data
+        """
+        product_id = str(product_id)
+
+        if product_id in self.cart:
+            del self.cart[product_id]
+            self.save()
+
+    def update(self, product_id, qty):
+        """
+        Update session items data
+        """
+        product_id = str(product_id)
+
+        if product_id in self.cart:
+            self.cart[product_id]['qty'] = qty
+
+        self.save()
 
     def __len__(self):
         """
@@ -53,3 +74,6 @@ class ShoppingCart:
 
     def get_total_price(self):
         return sum([Decimal(item['price']) * item['qty'] for item in self.cart.values()])
+
+    def save(self):
+        self.session.modified = True
