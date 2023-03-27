@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c7f9acc2-81b1-420a-b016-884c7ddacc09" name="Default Changelist" comment="Added shopping cart functionality, requires further improvements">
+      <change beforePath="$PROJECT_DIR$/.idea/ecommerce_store — копия.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ecommerce_store.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cart/shopping_cart.py" beforeDir="false" afterPath="$PROJECT_DIR$/cart/shopping_cart.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cart/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/cart/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cart/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/cart/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/store/cart/summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/store/cart/summary.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,6 +79,7 @@
       <workItem from="1661880823161" duration="8290000" />
       <workItem from="1662046406482" duration="865000" />
       <workItem from="1662059433603" duration="11602000" />
+      <workItem from="1679944278433" duration="1730000" />
     </task>
     <task id="LOCAL-00001" summary="Basic functionality of store, including models of categories and products, views, html templates and some simple tests">
       <created>1661290917216</created>
