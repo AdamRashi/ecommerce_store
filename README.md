@@ -1,4 +1,4 @@
-#Ecommerce Store Pet Project
+# Ecommerce Store Pet Project
 This is an ecommerce store pet project built with Django, Python, HTML, CSS, AJAX and JavaScript.
 
 ![img_1.png](img_1.png)
