@@ -1,7 +1,7 @@
 # Ecommerce Store Pet Project
 This is an ecommerce store pet project built with Django, Python, HTML, CSS, AJAX and JavaScript.
 
-![img_1.png](img_1.png)
+![img_1.png](docs/img_1.png)
 
 ## Features
 
@@ -9,9 +9,9 @@ This is an ecommerce store pet project built with Django, Python, HTML, CSS, AJA
 - Shopping cart functionality
 - Admin interface for managing products, orders, and users
 
-![img.png](img.png)
+![img.png](docs/img.png)
   
-![img_2.png](img_2.png)
+![img_2.png](docs/img_2.png)
 
 ## Setup
 

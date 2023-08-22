@@ -8,25 +8,26 @@ class Category(models.Model):
     slug = models.SlugField(max_length=255, unique=True)
 
     class Meta:
-        verbose_name_plural = 'categories'
+        verbose_name_plural = "categories"
 
     def get_absolute_url(self):
-        return reverse('store:category_list', args=[self.slug])
+        return reverse("store:category_list", args=[self.slug])
 
     def __str__(self):
         return self.name
 
 
 class Product(models.Model):
-    category = models.ForeignKey(Category, related_name='product',
-                                 on_delete=models.CASCADE)
-    created_by = models.ForeignKey(User, related_name='product_creator',
-                                   on_delete=models.CASCADE)
+    category = models.ForeignKey(
+        Category, related_name="product", on_delete=models.CASCADE
+    )
+    created_by = models.ForeignKey(
+        User, related_name="product_creator", on_delete=models.CASCADE
+    )
     title = models.CharField(max_length=255, null=False)
-    author = models.CharField(max_length=255, default='admin')
+    author = models.CharField(max_length=255, default="admin")
     description = models.TextField(blank=True)
-    image = models.ImageField(upload_to='images/',
-                              default='images/default.png')
+    image = models.ImageField(upload_to="images/", default="images/default.png")
     slug = models.SlugField(max_length=255, unique=True)
     price = models.DecimalField(max_digits=9, decimal_places=2)
     in_stock = models.BooleanField(default=True)
@@ -35,11 +36,11 @@ class Product(models.Model):
     updated = models.DateTimeField(auto_now=True)
 
     class Meta:
-        verbose_name_plural = 'Products'
-        ordering = ('-created', )
+        verbose_name_plural = "Products"
+        ordering = ("-created",)
 
     def get_absolute_url(self):
-        return reverse('store:product_detail', args=[self.slug])
+        return reverse("store:product_detail", args=[self.slug])
 
     def __str__(self):
         return self.title

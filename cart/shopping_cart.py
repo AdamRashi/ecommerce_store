@@ -10,9 +10,9 @@ class ShoppingCart:
 
     def __init__(self, request):
         self.session = request.session
-        cart = self.session.get('skey')
-        if 'skey' not in request.session:
-            cart = self.session['skey'] = {}
+        cart = self.session.get("skey")
+        if "skey" not in request.session:
+            cart = self.session["skey"] = {}
         self.cart = cart
 
     def add(self, product, qty):
@@ -22,9 +22,9 @@ class ShoppingCart:
         product_id = str(product.id)
 
         if product_id in self.cart:
-            self.cart[product_id]['qty'] = qty
+            self.cart[product_id]["qty"] = qty
         else:
-            self.cart[product_id] = {'price': str(product.price), 'qty': int(qty)}
+            self.cart[product_id] = {"price": str(product.price), "qty": int(qty)}
 
         self.save()
 
@@ -45,7 +45,7 @@ class ShoppingCart:
         product_id = str(product_id)
 
         if product_id in self.cart:
-            self.cart[product_id]['qty'] = qty
+            self.cart[product_id]["qty"] = qty
 
         self.save()
 
@@ -53,7 +53,7 @@ class ShoppingCart:
         """
         Get the shopping cart data and count the quantity of items
         """
-        return sum(item['qty'] for item in self.cart.values())
+        return sum(item["qty"] for item in self.cart.values())
 
     def __iter__(self):
         """
@@ -65,15 +65,17 @@ class ShoppingCart:
         cart = self.cart.copy()
 
         for unit in products:
-            cart[str(unit.id)]['product'] = unit
+            cart[str(unit.id)]["product"] = unit
 
         for item in cart.values():
-            item['price'] = Decimal(item['price'])
-            item['total_price'] = item['price'] * item['qty']
+            item["price"] = Decimal(item["price"])
+            item["total_price"] = item["price"] * item["qty"]
             yield item
 
     def get_total_price(self):
-        return sum([Decimal(item['price']) * item['qty'] for item in self.cart.values()])
+        return sum(
+            [Decimal(item["price"]) * item["qty"] for item in self.cart.values()]
+        )
 
     def save(self):
         self.session.modified = True
